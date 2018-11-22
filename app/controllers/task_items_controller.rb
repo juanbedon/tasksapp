@@ -1,5 +1,6 @@
 class TaskItemsController < ApplicationController
 
+	before_action :set_task_item, except: [:create]
 	before_action :set_task_list
 
 	def create
@@ -9,8 +10,6 @@ class TaskItemsController < ApplicationController
 	end
 
 	def destroy
-		@task_item = @task_list.task_items.find(params[:id])
-
 		if @task_item.destroy
 			flash[:success] = "Task list item was deleted."
 		else
@@ -20,7 +19,17 @@ class TaskItemsController < ApplicationController
 		redirect_to @task_list
 	end
 
+	def complete
+		@task_item.update_attribute(:completed_at, Time.now)
+
+		redirect_to @todo_list, notice: "Task item completed."
+	end
+
 	private
+
+	def set_task_item
+		@task_item = @task_list.task_items.find(params[:id])
+	end
 
 	def set_task_list
 		@task_list = TaskList.find(params[:task_list_id])
