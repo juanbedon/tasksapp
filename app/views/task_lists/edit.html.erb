@@ -1,8 +1,13 @@
-<h1 class="task_list_title">Edit Task List</h1>
-<div class="forms">
-	<%= render 'form', task_list: @task_list %>
-</div>
+<% provide(:page_title, "Edit " + @task_list.title) %>
+<% provide(:tasks_active, 'active') %>
 
-<div class="links">
-	<%= link_to 'Cancel', task_lists_path %>
+<div class="container">
+	<div class="row my-5">
+		<div class="col-sm-6 offset-sm-3">
+			<h1 class="title text-center">Edit <%= @task_list.title.capitalize %></h1>
+			<div class="forms">
+				<%= render 'form', task_list: @task_list %>
+			</div>
+		</div>
+	</div>
 </div>

@@ -1,4 +1,10 @@
 <%= form_for([@task_list, @task_list.task_items.build]) do |f| %>
-	<%= f.text_field :content, placeholder: "New Task" %>
-	<%= f.submit %>
+	<div class="row">
+		<div class="col-sm-8">
+			<%= f.text_field :content, placeholder: "New Task", class: 'form-control' %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.submit "Add Task", class: 'btn btn-outline-primary btn-md font-weight-bold' %>
+		</div>
+	</div>
 <% end %>

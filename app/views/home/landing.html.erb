@@ -1,0 +1,15 @@
+<% provide(:page_title, "Home") %>
+
+<div class="container">
+	<div class="row my-5">
+		<div class="col-sm-6 offset-md-3">
+			<div class="text-center">
+				<h1 class="title">Welcome to TasksApp</h1>
+				<p class="lead mb-5">An app that will make your life easier!</p>	
+				<hr>
+				<%= link_to "Log In", user_session_path, class: 'nav-link links' %> |
+				<%= link_to "Sign Up", new_user_registration_path, class: 'nav-link links' %>
+			</div>
+		</div>
+	</div>
+</div>

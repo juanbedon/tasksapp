@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :task_lists do
   	resources :task_items do
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   	end
   end
 
-  root "task_lists#index"
+  root "home#landing"
 end

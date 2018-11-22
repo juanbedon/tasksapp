@@ -1,0 +1,9 @@
+.heavy {
+	font-weight: 700;	
+}
+
+@media (min-width: 992px) {
+	.name {
+		border-right: 0.5px solid grey;
+	}
+}

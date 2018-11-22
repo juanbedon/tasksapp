@@ -1,15 +1,18 @@
-<h2 class="task_list_title"><%= @task_list.title %></h2>
-<p class="task_list_sub_title"><%= @task_list.description %></p>
+<% provide(:page_title, @task_list.title.capitalize) %>
+<% provide(:tasks_active, 'active') %>
 
-<div id="task_items_wrapper">
-	<%= render @task_list.task_items %>
-	<div id="form">
-		<%= render "task_items/form" %>
+<div class="container">
+	<div class="row my-5">
+		<div class="col-sm-6 offset-sm-3 show-view">
+			<h1 class="title"><%= @task_list.title %></h1>
+			<p class="lead"><%= @task_list.description %></p>
+			<!--<%#= render @task_list.task_items %>
+			<%#= render "task_items/form" %>-->
+			<div class="links">
+				<%= link_to 'Edit', edit_task_list_path(@task_list) %> |
+				<%= link_to 'Delete', task_list_path(@task_list), method: :delete, data: { confirm: "Are you sure?" }
+			 %>
+			</div>
+		</div>
 	</div>
-</div>
-
-<div class="links">
-	<%= link_to 'Edit', edit_task_list_path(@task_list) %> |
-	<%= link_to 'Delete', task_list_path(@task_list), method: :delete, data: { confirm: "Are you sure?" } %> | 
-	<%= link_to 'Back', task_lists_path %>
 </div>

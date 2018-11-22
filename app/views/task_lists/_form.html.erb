@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field mt-3 text-left">
+    <%= form.label "Title:", class: 'font-weight-bold' %><br>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field my-3 text-left">
+    <%= form.label "Description:", class: 'font-weight-bold' %><br>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="text-right">
+    <%= link_to 'Back', task_lists_path, class: 'btn btn-outline-danger btn-md font-weight-bold' %>
+    <%= form.submit "Task", class: 'btn btn-outline-primary btn-md font-weight-bold' %>
   </div>
 <% end %>
