@@ -1,14 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @task_list.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @task_list.description %>
-</p>
+<h2 class="task_list_title"><%= @task_list.title %></h2>
+<p class="task_list_sub_title"><%= @task_list.description %></p>
 
 <div id="task_items_wrapper">
 	<%= render @task_list.task_items %>
@@ -17,5 +8,8 @@
 	</div>
 </div>
 
-<%= link_to 'Edit', edit_task_list_path(@task_list) %> |
-<%= link_to 'Back', task_lists_path %>
+<div class="links">
+	<%= link_to 'Edit', edit_task_list_path(@task_list) %> |
+	<%= link_to 'Delete', task_list_path(@task_list), method: :delete, data: { confirm: "Are you sure?" } %> | 
+	<%= link_to 'Back', task_lists_path %>
+</div>
